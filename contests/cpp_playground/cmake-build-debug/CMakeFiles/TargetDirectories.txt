@@ -1,0 +1,3 @@
+/media/maxim/TOSHIBA EXT/prog/6term/contests/cpp_playground/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/media/maxim/TOSHIBA EXT/prog/6term/contests/cpp_playground/cmake-build-debug/CMakeFiles/edit_cache.dir
+/media/maxim/TOSHIBA EXT/prog/6term/contests/cpp_playground/cmake-build-debug/CMakeFiles/cpp_playground.dir
