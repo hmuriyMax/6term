@@ -1,4 +1,0 @@
-num=$(cat text | tr '\n' ' ' | tr -cd '.' | wc -m)
-num=$[$num/6 + 1]
-
-sed -r 's/(([^.!?]+[.!?]){'$num'})(\s*)/\1\n/g' | cat text | tr '\n' ' '
