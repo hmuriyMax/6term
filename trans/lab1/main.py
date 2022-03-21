@@ -1,4 +1,3 @@
-
 def parse_number(expr: str, pos: int):
     res = ""
     last_index = pos
@@ -17,8 +16,8 @@ def is_letter(ch):
 
 
 def operate(operator, lhs, rhs):
-    if not lhs and not rhs:
-        raise TypeError("some argument is none")
+    if lhs is None or rhs is None:
+        raise SyntaxError("some argument is none")
     if operator == '+':
         return lhs + rhs
     elif operator == '-':
@@ -67,10 +66,16 @@ class Formula:
                     res += stack.pop() + ' '
                 if len(stack) > 0:
                     stack.pop()
+                else:
+                    raise SyntaxError("Error with brackets")
             elif ch in self.priority:
-                is_digit_str = False
-                if ch == '-' and (i == 0 or (i > 1 and expr[i - 1] in self.priority)):
+                if ch == '-' and (i == 0 or (i >= 1 and expr[i - 1] in self.priority)):
+                    if len(stack) > 0 and stack[len(stack) - 1] == '~':
+                        raise SyntaxError("multiple minuses")
                     ch = '~'
+                elif not is_digit_str:
+                    raise SyntaxError("multiple operators")
+                is_digit_str = False
                 go_into_pars = True
             if go_into_pars:
                 if is_digit_str:
@@ -79,28 +84,37 @@ class Formula:
                     res += stack.pop() + ' '
                 stack.append(ch)
                 go_into_pars = False
-            i += 1
+            if ch != ' ':
+                i += 1
         while len(stack) > 0:
-            res += stack.pop() + ' '
+            t = stack.pop()
+            if t == '(' or t == ')':
+                raise SyntaxError("Error with brackets")
+            res += t + ' '
         return res
 
     def count(self):
         stack = []
         i = 0
+        pers = {}
         while i < len(self.postfix):
             ch = self.postfix[i]
             if ch.isdigit():
                 tmp, i = parse_number(self.postfix, i)
                 stack.append(float(tmp))
             elif ch.isalpha():
-                tmp = input(ch + ': ')
+                if ch not in pers:
+                    tmp = input(ch + ': ')
+                    pers[ch] = tmp
+                else:
+                    tmp = pers[ch]
                 stack.append(float(tmp))
             elif ch in self.priority:
                 if ch == '~':
                     last = 0.0
                     if len(stack) > 0:
                         last = stack.pop()
-                    stack.append(operate('-', 0, float(last))[0])
+                    stack.append(operate('-', 0.0, float(last)))
                     # print(ch, last, '=', stack[len(stack) - 1])
                     i += 1
                     continue
@@ -118,10 +132,14 @@ class Formula:
         return stack.pop()
 
 
-string = input()
-f = Formula(string)
-try:
-    print('Postfix: ', f.postfix)
-    print('Result:  ', f.count())
-except BaseException as mess:
-    print("Wrong expression: ", mess)
+string = 'str'
+while True:
+    string = input()
+    if string == '':
+        break
+    try:
+        f = Formula(string)
+        print('Postfix: ', f.postfix)
+        print('Result:  ', f.count())
+    except BaseException as mess:
+        print("Wrong expression: ", mess)
