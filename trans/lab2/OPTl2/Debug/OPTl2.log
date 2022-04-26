@@ -1,0 +1,4 @@
+﻿  ut.cpp
+C:\Users\Redaciple\source\repos\OPTl2\ut.cpp(29,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Redaciple\source\repos\OPTl2\ut.cpp(35,51): warning C4018: '<': signed/unsigned mismatch
+  OPTl2.vcxproj -> C:\Users\Redaciple\source\repos\OPTl2\Debug\OPTl2.exe
