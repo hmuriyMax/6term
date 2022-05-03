@@ -1,0 +1,46 @@
+OPIF "if"
+OPTHEN "then"
+OPELSE "else"
+LETTER [_a-zA-Z]
+DIGIT [0-9]
+SYMBOL {LETTER}|{DIGIT}
+ID {LETTER}{SYMBOL}*
+INT {DIGIT}+
+UFLOAT {INT}.{INT}|{INT}
+FLOAT -{UFLOAT}|{UFLOAT} 
+BOPER "<"|">"|"="
+ASSIGN ":="
+COMMENT "//"[^\n]*|"{"[^}]*"}"
+SEMICOLON ";"
+LBR "("
+RBR ")"
+
+%%
+
+[ \t\n]
+{OPIF}       printf("if:              %s\n", yytext ); 
+{OPTHEN}     printf("then:            %s\n", yytext ); 
+{OPELSE}     printf("else:            %s\n", yytext ); 
+{ID}         printf("ID:              %s\n", yytext ); 
+{FLOAT}      printf("number:          %s\n", yytext ); 
+{BOPER}      printf("bool operator:   %s\n", yytext ); 
+{ASSIGN}     printf("assign operator: %s\n", yytext ); 
+{COMMENT}    printf("comment:         %s\n", yytext ); 
+{SEMICOLON}  printf("semicolon:       %s\n", yytext ); 
+{LBR}        printf("left bracket:    %s\n", yytext ); 
+{RBR}        printf("right bracket:   %s\n", yytext ); 
+.          printf("Unknown lexem! \n\t\"%s\"\n", yytext ); return 0; 
+
+%%
+
+int yywrap()
+{
+	return 1;
+}
+
+int main()
+{
+	yyin = fopen( "1.txt", "r" );
+	yylex();
+	return 0;
+}
