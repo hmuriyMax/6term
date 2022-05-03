@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1649971057 source:c:\prog\6term\os\lab5cb\main.cpp
+	<iostream>
+	<windows.h>
+
+1649886376 c:\prog\6term\os\lab5cb\header.h
+
+1649886232 source:c:\prog\6term\os\lab5cb\main.asm
+

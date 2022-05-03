@@ -1,0 +1,2 @@
+LIBRARY CutterLib
+EXPORTS cutter
