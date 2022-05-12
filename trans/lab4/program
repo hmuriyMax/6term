@@ -1,0 +1,42 @@
+%{
+#include "y.tab.h"
+
+void yyerror(const char *str) {
+	printf("Ошибка в строке %d\n", yylineno);
+}
+%}
+
+%option noyywrap
+%option yylineno
+
+OR		"or"
+XOR		"xor"
+AND		"and"
+NOT		"not"
+SEPARATOR	";"
+ASSIGN		":="
+LB		"("
+RB		")"
+LETTER 		[_a-zA-Z]
+DIGIT 		[0-9]
+SYMBOL 		{LETTER}|{DIGIT}
+ID 		{LETTER}{SYMBOL}*
+INT 		{DIGIT}+
+UFLOAT 		{INT}.{INT}|{INT}
+FLOAT 		-{UFLOAT}|{UFLOAT} 
+
+%%
+[ \t\n]
+{OR}		return OR;
+{XOR}		return XOR;
+{AND}		return AND;
+{NOT}		return NOT;
+{ASSIGN}	return ASSIGN;
+{SEPARATOR}	return SEPARATOR;
+{LB}		return OPEN_BRACKET;
+{RB}		return CLOSE_BRACKET;
+{FLOAT}		return FLOAT;
+{ID}		return ID;
+.		printf("Ошибка в строке %d\n", yylineno);
+
+%%

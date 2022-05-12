@@ -1,0 +1,47 @@
+%{
+#include <stdio.h>
+extern FILE * yyin;
+extern int yylex (void);
+void yyerror(const char *str);
+%}
+
+%token XOR OR AND NOT SEPARATOR ASSIGN OPEN_BRACKET CLOSE_BRACKET FLOAT ID 
+
+%%
+start
+		: start statement SEPARATOR
+		| statement SEPARATOR
+		;
+statement
+		: assignment_operator
+		;
+assignment_operator
+		: a ASSIGN factor
+		;
+factor
+		: factor OR term
+		| factor XOR term
+		| term
+		;
+term
+		: term AND expr
+		| expr
+		;
+expr
+		: OPEN_BRACKET factor CLOSE_BRACKET
+		| NOT OPEN_BRACKET factor CLOSE_BRACKET
+		| a
+		;
+a
+		: ID 
+		| FLOAT
+%%
+
+int main(int argc, char** argv) {
+	yyin = fopen(argv[1], "r");
+	if (!yyin)
+		yyparse();
+	else
+		printf("Невозможно открыть файл: %s\n", argv[1]);
+	return 0;
+}
