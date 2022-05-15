@@ -1,0 +1,7 @@
+a := 5 xor 5;
+c := (a and a);
+q := not(c);
+d := 43 xor c;
+a := 34.74 xor q;
+z := (a);
+c := ((43);
