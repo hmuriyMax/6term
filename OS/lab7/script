@@ -1,0 +1,5 @@
+rm main.out
+rm child.out
+gcc main.cpp -o main.out
+gcc child.cpp -o child.out
+./main.out
