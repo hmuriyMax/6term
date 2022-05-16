@@ -1,0 +1,26 @@
+drwx------  2 anisimov     anisimov      4096 Feb 11 15:13 anisimov
+drwx------  2 aparnev      aparnev       4096 Feb 11 15:13 aparnev
+drwx------  2 belova       belova        4096 Feb 11 15:13 belova
+drwx------  2 borisov      borisov       4096 Feb 11 15:13 borisov
+drwx------  2 butilov      butilov       4096 Feb 11 15:13 butilov
+drwx------  2 efanov       efanov        4096 Feb 11 15:14 efanov
+drwx------  2 galko        galko         4096 Feb 11 15:14 galko
+drwx------  2 grachev      grachev       4096 Feb 11 15:14 grachev
+drwx------  2 kandaurova   kandaurova    4096 Feb 11 15:14 kandaurova
+drwx------  2 krutko       krutko        4096 Feb 11 15:14 krutko
+drwx------  2 morgunova    morgunova     4096 Feb 11 15:15 morgunova
+drwx------  2 pugacheva    pugacheva     4096 Feb 11 15:15 pugacheva
+drwx------  2 shaforostov  shaforostov   4096 Feb 11 15:15 shaforostov
+drwx------  2 shakhov      shakhov       4096 Feb 11 15:15 shakhov
+drwx------  2 shulipin     shulipin      4096 Feb 11 15:15 shulipin
+drwx------  2 stepashin    stepashin     4096 Feb 11 15:15 stepashin
+drwx------  2 tutov        tutov         4096 Feb 11 15:15 tutov
+drwx------  2 vodolazskaya vodolazskaya  4096 Feb 11 15:14 vodolazskaya
+drwx------  2 zakladnaya   zakladnaya    4096 Feb 11 15:14 zakladnaya
+
+
+
+Начальный пароль:
+ Pa$$w0rd
+
+ip : 10.5.2.25

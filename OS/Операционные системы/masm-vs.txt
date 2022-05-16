@@ -1,0 +1,1 @@
+https://stackoverflow.com/questions/33751509/external-assembly-file-in-visual-studio

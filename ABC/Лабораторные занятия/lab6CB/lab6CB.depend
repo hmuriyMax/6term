@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1652435757 source:c:\prog\6term\abc\Лабораторные занятия\lab6cb\main.cpp
+	<iostream>
+	<stdio.h>
+	<omp.h>
+
