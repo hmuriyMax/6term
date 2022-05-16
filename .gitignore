@@ -7,3 +7,19 @@ trans/lab1/.idea/
 contests/cpp_playground/.idea/
 
 trans/PascalSyntaxChecker/.vs/
+
+contests/cpp_playground/cmake-build-debug/CMakeFiles/
+
+contests/cpp_playground/cmake-build-debug/Testing/
+
+contests/cpp_playground/cmake-build-debug/.cmake/
+
+contests/cpp_playground/cmake-build-debug/build.ninja
+
+contests/cpp_playground/cmake-build-debug/
+
+OS/lab7/cmake-build-debug/
+
+OS/lab8/cmake-build-debug/
+
+OS/lab8/.idea/
